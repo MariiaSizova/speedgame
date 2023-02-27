@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-family: "Raleway", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-family: "Space Mono", monospace;
+    background-color: #1e1e1e;
+    text-align: center;
+}
+
+main {
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.game_card {
+    margin-top: 6rem;
+    background-color: #323233;
+    width: 850px;
+    height: 550px;
+    border-radius: 15px;
+    position: fixed; /* TODO */
+}
+
+h1 {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: #f1f1f1;
+}
+
+/* lives */
+
+.lives {
+    position: absolute;
+    top: 0.2rem;
+    left: 1rem;
+    padding: 0.2rem;
+    margin-top: 1rem;
+    background-color: #27272740;
+    border-radius: 5px;
+    display: none;
+}
+
+.score_result {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #f1f1f1;
+    visibility: hidden;
+}
+
+.bug_1 {
+    color: #fe5f58;
+}
+
+.bug_2 {
+    color: #febc2e;
+}
+
+.bug_3 {
+    color: #2bc840;
+}
+
+.buttons_circle {
+    height: 12rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    border: none;
+    box-shadow: none;
+    font-size: inherit;
+    font-family: inherit;
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background-color: #21b6d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.disabled_circle {
+    pointer-events: none;
+    background-color: #1e1e1e8a;
+}
+
+.main_circle {
+    background: url(images/bug.jpg) no-repeat center center/cover;
+    color: aqua;
+    height: 140px;
+    width: 140px;
+    box-shadow: 0 0 30px #9a9a9aeb;
+}
+
+.wrong_circle {
+    background-color: #ef5350;
+}
+
+.circle_header {
+    color: black;
+}
+
+.button_start {
+    margin-top: 3rem;
+    border: none;
+    box-shadow: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    width: 12rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: inherit;
+    background-color: yellowgreen;
+}
+
+.button_start:hover {
+    width: 12.2rem;
+    height: 3.7rem;
+    font-size: 1.7rem;
+    transition: 0.2s;
+}
+
+/* overlay helper */
+
+.help {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 0.8rem;
+}
+
+.helper {
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: #27272752;
+}
+
+.helper > span {
+    color: #f1f1f1;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.overlay_rules {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1e1e1ef0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.overlay_rules.visible {
+    display: flex;
+}
+
+.rules {
+    position: relative;
+    background-color: #323233;
+    color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    min-height: 50vh;
+    width: 30rem;
+}
+
+.overlayRules_title {
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.rules_list {
+    margin-left: 1rem;
+    text-align: left;
+}
+
+li {
+    padding-bottom: 0.5rem;
+}
+
+/* overlay game_over */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1e1e1ef0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.overlay.visible {
+    display: flex;
+}
+
+.overlay_title {
+    font-size: 2.4rem;
+    padding-bottom: 1.5rem;
+}
+
+.overlay_score {
+    font-size: 1.8rem;
+    font-weight: 150;
+    margin-top: 2.2rem;
+}
+
+.overlay_score > span {
+    color: #f32055;
+}
+
+.overlay_paragraph {
+    font-size: 1.2rem;
+    margin-top: 5rem;
+}
+
+.game_over {
+    position: relative;
+    background-color: #323233;
+    color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    min-height: 50vh;
+    width: 30rem;
+}
+
+.btn {
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.btn-close,
+.btn-close__rules {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    background-color: #f32055b1;
+    width: 0.8rem;
+}
+
+.btn-close:hover {
+    background-color: #f32055;
+}
+.btn-close__rules:hover {
+    background-color: #f32055;
+}
+
+.btn-close,
+.btn-close__rules > span {
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-game-over {
+    background-color: #5e469aea;
+}
+
+@media screen and (max-width: 768px) {
+    .game_card {
+        width: 750px;
+        height: 450px;
+    }
+
+    .circle {
+        height: 120px;
+        width: 120px;
+    }
+
+    .buttons_circle {
+        margin-top: -1rem;
+    }
+
+    .button_start {
+        margin-top: 2.5rem;
+    }
+
+    .score_result {
+        margin-top: 0.5rem;
+    }
+
+    .overlay_paragraph {
+        font-size: 1rem;
+        margin-top: 4rem;
+    }
+
+    .overlayRules_title {
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    li {
+        font-size: 0.95rem;
+        padding-bottom: 0.3rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-top: 3.5rem;
+    }
+
+    .overlay_score {
+        font-size: 1.4rem;
+        margin-top: 2rem;
+    }
+
+    .game_card {
+        margin-top: 1rem;
+        width: 380px;
+        height: 650px;
+    }
+
+    .buttons_circle {
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        height: 330px;
+    }
+
+    .circle {
+        height: 120px;
+        width: 120px;
+    }
+
+    .button_start {
+        margin-top: 2.5rem;
+    }
+
+    .overlay_title {
+        font-size: 2.5rem;
+        margin-top: 1rem;
+    }
+
+    .overlay_score {
+        font-size: 1.8rem;
+    }
+
+    .overlay_paragraph {
+        font-size: 1.3rem;
+        margin-top: 4.5rem;
+    }
+
+    .overlayRules_title {
+        font-size: 1.8rem;
+        padding-bottom: 1rem;
+    }
+
+    li {
+        font-size: 0.9rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .lives {
+        top: 0.2rem;
+        left: 1rem;
+        padding: 0.1rem;
+        margin-top: 0.5rem;
+    }
+
+    .lives > span {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .overlay_score {
+        font-size: 1.4rem;
+        margin-top: 2rem;
+    }
+
+    .game_card {
+        margin-top: 1rem;
+        width: 350px;
+        height: 620px;
+    }
+
+    .buttons_circle {
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+        height: 330px;
+    }
+
+    .circle {
+        height: 110px;
+        width: 110px;
+    }
+
+    .button_start {
+        margin-top: 2.5rem;
+    }
+
+    .overlay_title {
+        font-size: 1.8rem;
+    }
+
+    .overlay_score {
+        font-size: 1.5rem;
+    }
+
+    .overlay_paragraph {
+        font-size: 1rem;
+        margin-top: 4rem;
+    }
+
+    .overlayRules_title {
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    li {
+        font-size: 0.8rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .lives {
+        top: 0.2rem;
+        left: 1rem;
+        padding: 0.1rem;
+        margin-top: 0.5rem;
+    }
+
+    .lives > span {
+        font-size: 1rem;
+    }
+}
