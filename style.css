@@ -100,6 +100,10 @@ h1 {
     background-color: #1e1e1e8a;
 }
 
+.disabled {
+    pointer-events: none;
+}
+
 .main_circle {
     background: url(images/bug.jpg) no-repeat center center/cover;
     color: aqua;

@@ -54,6 +54,7 @@ const changingButton = (activeNumber) => {
   }
   let id = activeNumber - 1;
   chosenButtons[id].classList.add("main_circle");
+  chosenButtons[id].classList.remove("disabled");
 };
 
 const startGame = () => {
@@ -96,6 +97,7 @@ const checkingTheCircle = (buttonIndex, activeNumber) => {
     let audio = new Audio("sounds/click.wav");
     audio.play();
     score += 1;
+    chosenButtons[buttonIndex - 1].classList.add("disabled");
     userResult.innerText = score;
     userResultFinal.innerText = score;
   } else {
