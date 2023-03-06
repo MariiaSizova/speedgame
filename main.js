@@ -51,10 +51,10 @@ const randomNumber = (min, max) => {
 const changingButton = (activeNumber) => {
   for (let i = 0; i < 4; i++) {
     chosenButtons[i].classList.remove("main_circle");
+    chosenButtons[i].classList.remove("disabled");
   }
   let id = activeNumber - 1;
   chosenButtons[id].classList.add("main_circle");
-  chosenButtons[id].classList.remove("disabled");
 };
 
 const startGame = () => {
@@ -88,6 +88,7 @@ const startGame = () => {
 };
 
 const clickCircle = (i) => {
+  chosenButtons[i].classList.add("disabled");
   let buttonIndex = i + 1;
   checkingTheCircle(buttonIndex, activeNumber);
 };
@@ -97,7 +98,6 @@ const checkingTheCircle = (buttonIndex, activeNumber) => {
     let audio = new Audio("sounds/click.wav");
     audio.play();
     score += 1;
-    chosenButtons[buttonIndex - 1].classList.add("disabled");
     userResult.innerText = score;
     userResultFinal.innerText = score;
   } else {
