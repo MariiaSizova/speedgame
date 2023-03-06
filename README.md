@@ -18,15 +18,12 @@ Welcome to the Debuger game! Here you can become a true debugger 🪲🪲🪲
 8. Your score is based on how many buttons you correctly press before the game ends. The higher your score, the better you did.
 9. The game can be restarted at any time by pressing a reset button.
 
-
 ---
 
 ### **Check it out!**
 
-[Speedgame](https://public.bc.fi/s2300111/speedgame/)
+[Speedgame](https://public.bc.fi/s2300111/Speedgame/)
 
 ### Link to my GitHub
 
 [GitHub](https://github.com/MariiaSizova)
-
-
